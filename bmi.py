@@ -14,7 +14,7 @@
 
 
 # Yuh mulai ngoding nya
-import os
+
 
 # Mulai  input nilai tinggi badan dan berat badan
 tinggi_badan = float(input("Masukan tinggi badan dalam cm : ")) # Ini tahap input tinggi badan tipe float kemudian dimasukan ke  variable tinggi_badan
