@@ -47,3 +47,7 @@ elif(indeks>=25.1 and indeks<=27.0):
 
 elif(indeks>27.0):
     print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Sangat Gemuk atau Obesitas'".format(indeks))
+
+
+print("\t")
+input("Tekan tombol sembarang untuk keluar....")
