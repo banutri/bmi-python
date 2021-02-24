@@ -14,13 +14,14 @@
 
 
 # Yuh mulai ngoding nya
-
+import os
 
 # Mulai  input nilai tinggi badan dan berat badan
 tinggi_badan = float(input("Masukan tinggi badan dalam cm : ")) # Ini tahap input tinggi badan tipe float kemudian dimasukan ke  variable tinggi_badan
 
 berat_badan = float(input("Masukan berat badan dalam kg : ")) # Ini tahap input berat badan tipe float kemudian dimasukan ke  variable berat_badan
 
+print("\n")
 
 # Mulai membagi tinggi badan dengan 100
 tinggi_badan = tinggi_badan/100
