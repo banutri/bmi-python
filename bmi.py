@@ -13,41 +13,99 @@
 # Lebih dari 27 = Gemuk, kelebihan berat badan tingkat berat atau obesitas
 
 
+
+
+#ini function untuk cek inputan user
+def cek_input_user(inputan):
+    if(inputan==""): # jika inputan kosong maka return "kosong"
+        return "kosong"
+    else:
+        try:
+            # Konversi inputan ke integer
+            val = int(inputan) # jika konversi ini berhasil ...
+            return "integer" # maka return "integer" dan cukup berhenti sampai sini
+        except ValueError: # Jika konversi diatas error maka lanjut ke bawah
+            try:
+                # Konversi inputan ke float
+                val = float(inputan) # jika konversi ini berhasil ...
+                return "float"  # maka return "float" dan cukup berhenti sampai sini
+            except ValueError: # Jika konversi diatas error maka lanjut ke bawah
+                return "string" # jika konversi diatas error semua maka return string
+
+
 # Yuh mulai ngoding nya
 
-
-# Mulai  input nilai tinggi badan dan berat badan
-tinggi_badan = float(input("Masukan tinggi badan dalam cm : ")) # Ini tahap input tinggi badan tipe float kemudian dimasukan ke  variable tinggi_badan
-
-berat_badan = float(input("Masukan berat badan dalam kg : ")) # Ini tahap input berat badan tipe float kemudian dimasukan ke  variable berat_badan
-
-print("\n")
-
-# Mulai membagi tinggi badan dengan 100
-tinggi_badan = tinggi_badan/100
+def main():
+    print("==================== BODY MASS INDEX ====================")
+    print("\n")
 
 
-# Mulai menghitung BMI
-indeks = berat_badan/(tinggi_badan*tinggi_badan)
+    # Mulai input NAMA
+    while True:
+        NAMA = input("Masukan Nama Anda\t\t\t: ")
+        if(cek_input_user(NAMA)=="string"):
+            break
+        else:
+            print("\nInput tidak valid! mohon ulangi")
 
 
+    # Mulai  input nilai tinggi badan
+    while True:
+        tinggi_badan = input("Masukan Tinggi Badan dalam cm : ") # Ini tahap input tinggi badan kemudian dimasukan ke variable tinggi_badan
+        if(cek_input_user(tinggi_badan)=="integer" or cek_input_user(tinggi_badan)=="float"):
+            break
+        else:
+            print("\nInput tidak valid! mohon ulangi")
 
-# Mulai mencocokkan kategori dari hasil hitungan BMI
-if(indeks<17.0):
-    print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Sangat Kurus'".format(indeks))
+    # Mulai input berat badan
+    while True:
+        berat_badan = input("Masukan Berat Badan dalam kg  : ") # Ini tahap input berat badan kemudian dimasukan ke variable berat_badan
+        if(cek_input_user(berat_badan)=="integer" or cek_input_user(berat_badan)=="float"):
+            break
+        else:
+            print("\nInput tidak valid! mohon ulangi")
 
-elif(indeks>=17.0 and indeks <=18.4):
-    print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Kurus'".format(indeks))
+    print("\n")
 
-elif(indeks>=18.5 and indeks<=25.0):
-    print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Ideal atau Normal'".format(indeks))
+    # Mulai konversi string ke float atau pecahan supaya dapat dikalkulasi
+    tinggi_badan = float(tinggi_badan)
+    berat_badan = float(berat_badan)
 
-elif(indeks>=25.1 and indeks<=27.0):
-    print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Gemuk'".format(indeks))
+    # Mulai membagi tinggi badan dengan 100
+    tinggi_badan = tinggi_badan/100
 
-elif(indeks>27.0):
-    print("Anda mendapat indeks : {:.2f}, anda masuk kategori 'Sangat Gemuk atau Obesitas'".format(indeks))
+    # Mulai menghitung BMI
+    indeks = berat_badan/(tinggi_badan*tinggi_badan)
+
+    # Mulai pembulatan bilangan indeks
+    indeks = round(indeks)
+
+    # Mulai mencocokkan kategori dari hasil hitungan BMI
 
 
-print("\t")
-input("Tekan tombol sembarang untuk keluar....")
+    if(indeks<17.0):
+        print("{NAMA} mendapat indeks : {indeks:.2f}, {NAMA} masuk kategori 'Sangat Kurus'".format(NAMA=NAMA,indeks=indeks))
+
+    elif(indeks>=17.0 and indeks <=18.40):
+        print("{NAMA} mendapat indeks : {indeks:.2f}, {NAMA} masuk kategori 'Kurus'".format(NAMA=NAMA,indeks=indeks))
+
+    elif(indeks>=18.5 and indeks<=25.0):
+        print("{NAMA} mendapat indeks : {indeks:.2f}, {NAMA} masuk kategori 'Ideal atau Normal'".format(NAMA=NAMA,indeks=indeks))
+
+    elif(indeks>=25.1 and indeks<=27.0):
+        print("{NAMA} mendapat indeks : {indeks:.2f}, {NAMA} masuk kategori 'Gemuk'".format(NAMA=NAMA,indeks=indeks))
+
+    elif(indeks>27.0):
+        print("{NAMA} mendapat indeks : {indeks:.2f}, {NAMA} masuk kategori 'Sangat Gemuk atau Obesitas'".format(NAMA=NAMA,indeks=indeks))
+
+
+    print("\t")
+
+main() # Menjalankan program utama
+while True:
+    konfirmasi = input("Apakah ingin mengulangi? Y/N : ")
+    if(konfirmasi=="Y" or konfirmasi=="y"):
+        main()
+    else:
+        input("\nTekan sembarang tombol untuk keluar")
+        break
