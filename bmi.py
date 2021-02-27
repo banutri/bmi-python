@@ -51,7 +51,7 @@ def main():
 
     # Mulai  input nilai tinggi badan
     while True:
-        tinggi_badan = input("Masukan Tinggi Badan dalam cm : ") # Ini tahap input tinggi badan kemudian dimasukan ke variable tinggi_badan
+        tinggi_badan = input("Masukan Tinggi Badan dalam CM\t\t: ") # Ini tahap input tinggi badan kemudian dimasukan ke variable tinggi_badan
         if(cek_input_user(tinggi_badan)=="integer" or cek_input_user(tinggi_badan)=="float"):
             break
         else:
@@ -59,7 +59,7 @@ def main():
 
     # Mulai input berat badan
     while True:
-        berat_badan = input("Masukan Berat Badan dalam kg  : ") # Ini tahap input berat badan kemudian dimasukan ke variable berat_badan
+        berat_badan = input("Masukan Berat Badan dalam KG\t\t: ") # Ini tahap input berat badan kemudian dimasukan ke variable berat_badan
         if(cek_input_user(berat_badan)=="integer" or cek_input_user(berat_badan)=="float"):
             break
         else:
@@ -103,7 +103,7 @@ def main():
 
 main() # Menjalankan program utama
 while True:
-    konfirmasi = input("Apakah ingin mengulangi? Y/N : ")
+    konfirmasi = input("Apakah ingin mengulangi? Y/N\t\t\t: ")
     if(konfirmasi=="Y" or konfirmasi=="y"):
         main()
     else:
